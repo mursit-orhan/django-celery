@@ -16,9 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from app.views import ReviewEmailView
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('reviews/', ReviewEmailView.as_view(), name='reviews'),
     path('cafe/', include('cafe_api.urls'), name='cafe'),
     path('catalog/', include('catalog.urls')),
 ]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
