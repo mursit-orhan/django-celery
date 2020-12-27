@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="cold-8 col-md-8 mx-auto">
+    <p> Write a Review</p>
+    <form action="{% url 'reviews' %}" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-dark" type="submit" value="Log-in">Submit</button>
+    </form>
+</div>
+{% endblock %}
