@@ -21,6 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('reviews/', ReviewEmailView.as_view(), name='reviews'),
     path('cafe/', include('cafe_api.urls'), name='cafe'),
     path('catalog/', include('catalog.urls')),
